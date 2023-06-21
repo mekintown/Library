@@ -3,11 +3,12 @@ const addBookButton = document.querySelector(".add-book-btn");
 const overlay = document.querySelector(".overlay");
 const closeButton = document.querySelector(".close-btn");
 const body = document.querySelector("body");
-const addBookSubmitButton = document.querySelector(".add-book-submit")
-const titleInput = document.querySelector("#title")
-const authorInput = document.querySelector("#author")
-const pagesNumberInput = document.querySelector("#pagesNumber")
-const isReadInput = document.querySelector("#isRead")
+const addBookSubmitButton = document.querySelector(".add-book-submit");
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const pagesNumberInput = document.querySelector("#pagesNumber");
+const isReadInput = document.querySelector("#isRead");
+const form = document.querySelector(".add-form");
 
 const myLibrary = [];
 
@@ -46,8 +47,16 @@ function createBookElement(title, author, pagesNumber, isRead) {
     bookInformationSection.appendChild(pagesNumberHeading)
 
     const isReadButton = document.createElement("button")
-    isReadButton.className = "status-btn read"
+    if (isRead) {
+        isReadButton.className = "status-btn read"
+    }
+    else {
+        isReadButton.className = "status-btn"
+    }
     isReadButton.textContent = "Read"
+    isReadButton.addEventListener("click", () => {
+        isReadButton.classList.toggle("read");
+    });
 
     const removeButton = document.createElement("button")
     removeButton.className = "remove-btn"
@@ -85,6 +94,8 @@ addBookSubmitButton.addEventListener("click", () => {
     const book = new Book(titleInput.value, authorInput.value, pagesNumberInput.value, isReadInput.checked);
     addBookToLibrary(book); 
     overlay.classList.add("hidden");
+    body.classList.remove("stop-scrolling")
+    form.reset();
     displayBooks();
 });
  

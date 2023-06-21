@@ -1,6 +1,7 @@
 :root {
     --book-clr: #fafaf9;
     --confirm-clr: #86efac;
+    --error-clr: #ef4444;
 }
 
 header {
@@ -40,9 +41,12 @@ header {
 }
 
 .status-btn {
-    background-color: var(--confirm-clr);
+    background-color: var(--error-clr);
 }
 
+.status-btn.read {
+    background-color: var(--confirm-clr);
+}
 
 .overlay{
     display: flex;
@@ -109,3 +113,15 @@ form button {
     line-height: 0px;
 }
 
+footer {
+    position: sticky;
+    justify-content: center;
+    width: 100%;
+    bottom: 0%;
+    display: flex;
+    gap: 5px;
+}
+
+footer i {
+    color: black;
+}
