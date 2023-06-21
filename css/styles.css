@@ -4,6 +4,12 @@
     --error-clr: #ef4444;
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -114,12 +120,13 @@ form button {
 }
 
 footer {
-    position: sticky;
+    position: auto;
     justify-content: center;
-    width: 100%;
-    bottom: 0%;
     display: flex;
     gap: 5px;
+    margin-top: auto;
+    position: sticky;
+    bottom: 0%;
 }
 
 footer i {
