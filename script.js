@@ -1,4 +1,13 @@
-const bookSection = document.querySelector(".books")
+const bookSection = document.querySelector(".books");
+const addBookButton = document.querySelector(".add-book-btn");
+const overlay = document.querySelector(".overlay");
+const closeButton = document.querySelector(".close-btn");
+const body = document.querySelector("body");
+const addBookSubmitButton = document.querySelector(".add-book-submit")
+const titleInput = document.querySelector("#title")
+const authorInput = document.querySelector("#author")
+const pagesNumberInput = document.querySelector("#pagesNumber")
+const isReadInput = document.querySelector("#isRead")
 
 const myLibrary = [];
 
@@ -43,24 +52,39 @@ function createBookElement(title, author, pagesNumber, isRead) {
     const removeButton = document.createElement("button")
     removeButton.className = "remove-btn"
     removeButton.textContent = "Remove"
-
+    removeButton.addEventListener("click", () => {
+        removeButton.parentElement.remove();
+    });
     bookDiv.appendChild(titleHeading)
     bookDiv.appendChild(bookInformationSection)
     bookDiv.appendChild(isReadButton)
     bookDiv.appendChild(removeButton)
 
-    bookSection.appendChild(bookDiv)
+    return bookDiv
 }
 
 function displayBooks() {
+    bookSection.textContent = '';
     for(let book of myLibrary) {
-        createBookElement(book.title, book.author, book.pagesNumber, book.isRead)
+        const bookDiv = createBookElement(book.title, book.author, book.pagesNumber, book.isRead);
+        bookSection.appendChild(bookDiv);
     }
 }
 
+addBookButton.addEventListener("click", () => {
+    overlay.classList.remove("hidden");
+    body.classList.add("stop-scrolling")
+});
+closeButton.addEventListener("click", () => {
+    overlay.classList.add("hidden");
+    body.classList.remove("stop-scrolling")
+});
 
-for (let i = 0; i < 10; i++) {
-    book1 = new Book('yeahdasa', 'yeah', 1, true)
-    addBookToLibrary(book1); 
-}
-displayBooks();   
+addBookSubmitButton.addEventListener("click", () => {
+    event.preventDefault();
+    const book = new Book(titleInput.value, authorInput.value, pagesNumberInput.value, isReadInput.checked);
+    addBookToLibrary(book); 
+    overlay.classList.add("hidden");
+    displayBooks();
+});
+ 

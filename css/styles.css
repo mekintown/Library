@@ -42,3 +42,70 @@ header {
 .status-btn {
     background-color: var(--confirm-clr);
 }
+
+
+.overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    z-index: 1;
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    opacity: 100%;
+}
+
+.overlay::before {
+    content: "";
+    position: absolute;
+    opacity: 10%;
+    height: 100%;
+    width: 100%;
+    background-color: #4c4a4a;
+}
+
+.hidden {
+    z-index: -1;
+    visibility: hidden;
+    position: absolute;
+}
+
+.form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    position: sticky;
+    top: 0px
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label:not(label[for="isRead"]) {
+    visibility: hidden;
+    position: absolute;
+}
+
+form button {
+    align-self: stretch;
+}
+
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }
+
+.close-btn {
+    height: 15px;
+    width: 15px;
+    padding: 3px;
+    margin-left: 5px;
+    line-height: 0px;
+}
+
