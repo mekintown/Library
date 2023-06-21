@@ -21,24 +21,36 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/styles.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
   
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
 </head>
 <body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <header>
+    <h3>Library</h3>
+  </header>
   <div class="container">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+    <section class="add-books">
+      <button>Add book</button>
+    </section>
+    <section class="books">
+      <div class="book">
+        <h4 class="title">My Little Adventure</h4>
+        <section class="bookInformation">
+          <h5 class="author">Author</h5>
+          <h5 class="pagesNumber">15</h5>
+        </section>
+        <button class="status-btn read">Read</button>
+        <button class="remove-btn">Remove</button>
       </div>
-    </div>
+    </section>
   </div>
 
 <!-- End Document

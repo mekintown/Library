@@ -1,0 +1,44 @@
+:root {
+    --book-clr: #fafaf9;
+    --confirm-clr: #86efac;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.add-books {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+
+.book {
+    background-color: var(--book-clr);
+    display: grid;
+    border-radius: 15px;
+    padding: 15px;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.bookInformation {
+    display: flex;
+    justify-content: space-between;
+    align-self: stretch;
+    width: 100%;
+}
+
+.status-btn {
+    background-color: var(--confirm-clr);
+}
