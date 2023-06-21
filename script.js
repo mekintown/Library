@@ -1,4 +1,4 @@
-let myLibrary = [];
+const myLibrary = [];
 
 function Book(author, title, pagesNumber, isRead) {
     this.author = arthor;
@@ -8,5 +8,6 @@ function Book(author, title, pagesNumber, isRead) {
 }
 
 function addBookToLibrary() {
-
+    const book = new Book();
+    myLibrary.push(book);
 }
